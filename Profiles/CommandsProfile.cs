@@ -8,8 +8,12 @@ namespace Commander.Profiles
     {
         public CommandsProfile()
         {
-            // from Command to CommandReadDTO
+            // from Command to CommandReadDTO => source to target
+            //on recoit une commande de la bdd et on veut le transformer en commandreaddto
             CreateMap<Command, CommandReadDto>();
+
+            //On a une commandecreatedto du controller et on veut le transformer en command pour l'envoyer en bdd
+            CreateMap<CommandCreateDto, Command>();
         }
     }
 }

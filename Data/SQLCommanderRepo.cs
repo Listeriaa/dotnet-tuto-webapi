@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Commander.Models;
@@ -23,17 +24,25 @@ namespace Commander.Data
         public Command GetCommandById(int id)
         {
             
-            return _context.Commands.FirstOrDefault(p => p.Id == id);
+            return _context.Commands.Where(p => p.Id == id).FirstOrDefault();
+            //same as
+            //return _context.Commands.FirstOrDefault(p => p.Id == id);
         }
 
-        public Command CreateCommand(Command cmd)
+        public void CreateCommand(Command cmd)
         {
-            return cmd;
+            if (cmd == null)
+            {
+                throw new ArgumentNullException(nameof(cmd));
+            }
+
+            _context.Add(cmd);
         }
 
         public bool SaveChanges()
         {
-            
+            return (_context.SaveChanges() >= 0);
+
         }
     }
 }

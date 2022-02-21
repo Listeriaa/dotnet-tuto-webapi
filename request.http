@@ -3,3 +3,14 @@ GET http://localhost:5000/api/commands HTTP/1.1
 ###
 
 GET http://localhost:5000/api/commands/1 HTTP/1.1
+
+###
+
+POST http://localhost:5000/api/commands HTTP/1.1
+content-type: application/json
+
+{
+    "howTo":"run a .NET Core app",
+    "line":"dotnet run",
+    "platform":".NET Core CLI"
+}

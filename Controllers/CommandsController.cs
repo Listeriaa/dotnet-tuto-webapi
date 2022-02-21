@@ -43,7 +43,7 @@ namespace Commander.Controllers
         }
 
         // GET api/commands/{id}
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name="GetCommandById")]
         public ActionResult <CommandReadDto> GetCommandById(int id)
         {
             var commandById = _repository.GetCommandById(id);
@@ -55,6 +55,22 @@ namespace Commander.Controllers
 
             }
             return NotFound();
+        }
+
+        [HttpPost]
+        public ActionResult <CommandReadDto> CreateCommand(CommandCreateDto commandDTO)
+        {
+            var commandModel = _mapper.Map<Command>(commandDTO);
+            _repository.CreateCommand(commandModel);
+
+            _repository.SaveChanges();
+
+            //on retourne le DTO pour l'exemple
+            var CreatedCommandDTO = _mapper.Map<CommandReadDto>(commandModel);
+
+            //retourne aussi l'url du 
+            return CreatedAtRoute(nameof(GetCommandById), new {Id = CreatedCommandDTO.Id}, CreatedCommandDTO);
+
         }
     }
 }
