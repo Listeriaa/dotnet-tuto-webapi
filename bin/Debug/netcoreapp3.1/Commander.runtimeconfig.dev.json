@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\laeti\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\laeti\\.nuget\\packages"
+    ]
+  }
+}
