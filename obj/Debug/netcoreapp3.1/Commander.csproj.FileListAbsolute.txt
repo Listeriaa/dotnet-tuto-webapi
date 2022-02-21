@@ -59,3 +59,7 @@ C:\Users\laeti\source\repos\Commander\obj\Debug\netcoreapp3.1\staticwebassets\Co
 C:\Users\laeti\source\repos\Commander\obj\Debug\netcoreapp3.1\Commander.dll
 C:\Users\laeti\source\repos\Commander\obj\Debug\netcoreapp3.1\Commander.pdb
 C:\Users\laeti\source\repos\Commander\obj\Debug\netcoreapp3.1\Commander.genruntimeconfig.cache
+C:\Users\laeti\source\repos\Commander\bin\Debug\netcoreapp3.1\appsettings.exemple.json
+C:\Users\laeti\source\repos\Commander\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\laeti\source\repos\Commander\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\laeti\source\repos\Commander\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll

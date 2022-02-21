@@ -31,9 +31,12 @@ namespace Commander
             (Configuration.GetConnectionString("CommanderConnection")));
             services.AddControllers();
 
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            
             //nom de l'interface et nom du service qui en hérite :en paramètre
             //Throughout our entire application, in all the places where ICommanderRepo is injected an instance of MockCommanderRepo is provided. 
-            services.AddScoped<ICommanderRepo, MockCommanderRepo>();
+            services.AddScoped<ICommanderRepo, SQLCommanderRepo>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
