@@ -14,6 +14,12 @@ namespace Commander.Profiles
 
             //On a une commandecreatedto du controller et on veut le transformer en command pour l'envoyer en bdd
             CreateMap<CommandCreateDto, Command>();
+
+            //pour put
+            CreateMap<CommandUpdateDto, Command>();
+
+            //pour patch
+            CreateMap<Command, CommandUpdateDto>();
         }
     }
 }

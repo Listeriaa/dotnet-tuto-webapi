@@ -12,6 +12,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
+
 
 namespace Commander
 {
@@ -29,12 +31,16 @@ namespace Commander
         {
             services.AddDbContext<CommanderContext>(opt => opt.UseSqlServer
             (Configuration.GetConnectionString("CommanderConnection")));
-            services.AddControllers();
+
+            //for the patch method (nuget JsonPatch and NewtonSoftJSOn)
+            services.AddControllers().AddNewtonsoftJson(s => {
+                s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             
             //nom de l'interface et nom du service qui en hérite :en paramètre
-            //Throughout our entire application, in all the places where ICommanderRepo is injected an instance of MockCommanderRepo is provided. 
+            //Throughout our entire application, in all the places where ICommanderRepo is injected an instance of SQLCommanderRepo is provided. 
             services.AddScoped<ICommanderRepo, SQLCommanderRepo>();
 
         }

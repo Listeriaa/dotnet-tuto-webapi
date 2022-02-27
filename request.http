@@ -14,3 +14,27 @@ content-type: application/json
     "line":"dotnet run",
     "platform":".NET Core CLI"
 }
+
+###
+
+PUT http://localhost:5000/api/commands/9 HTTP/1.1
+content-type: application/json
+
+{
+    "howTo":"run a .NET Core app",
+    "line":"dotnet run",
+    "platform":".NET Core"
+}
+
+###
+
+PATCH http://localhost:5000/api/commands/9 HTTP/1.1
+content-type: application/json
+
+[
+    {
+        "op":"replace",
+        "path":"/howto",
+        "value":"some new value"
+    }
+]
