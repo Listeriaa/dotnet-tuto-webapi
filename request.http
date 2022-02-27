@@ -38,3 +38,7 @@ content-type: application/json
         "value":"some new value"
     }
 ]
+
+###
+
+DELETE http://localhost:5000/api/commands/8 HTTP/1.1
